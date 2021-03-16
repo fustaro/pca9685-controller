@@ -1,5 +1,5 @@
 {
-  "name": "@fudtaro/pca9685-controller",
+  "name": "@fustaro/pca9685-controller",
   "version": "1.0.0",
   "author": "fustaro",
   "description": "PCA9685 I2C servo controller",
