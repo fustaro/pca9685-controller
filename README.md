@@ -1,10 +1,8 @@
-# @fustaro/pololu-maestro-controller
+# @fustaro/pca9685-controller
 
-Node Pololu Maestro servo controller
+Node PCA9685 servo controller / pwm driver over I2C
 
-USB Chained Mode (confirmed working on Windows 10, RPI 4 and RPI Zero W)
-
-```npm install @fustaro/pololu-maestro-controller```
+```npm install @fustaro/pca9685-controller```
 
 ### Create a ServoModel, specific to the brand and model of a particular servo
 
@@ -28,22 +26,19 @@ const servo = new Servo({
 });
 ```
 
-### Create your MaestroServoController
+### Create your PCA9685ServoController
 
 ```
-import { getOrCreateMaestroController } from '@fustaro/pololu-maestro-controller';
+import { getOrCreatePCA9685Controller } from '@fustaro/pca9685-controller';
 
-const controller = getOrCreateMaestroController(uniqueHardwareName, portName, channels);
+const controller = getOrCreatePCA9685Controller(uniqueHardwareName, options);
 
 //uniqueHardwareName: A unique reference to a given Maestro, e.g. 'Maestro_COM4' 
 //                    The ServoControllerFactory will only ever return a single
 //                    ServoController for a given uniqueHardwareName
 
-//portName: The USB port to find and connect the Maestro on. 
-//          On Windows, this will typically be 'COM1', 'COM2', etc
-//          On RPI, this will typically be '/dev/ttyACM0' or '/dev/ttyUSB0'
-
-//channels: The amount of channels this Maestro supports (6, 12, 18, 24 etc)
+//options: see Pca9685Options class or import defaultOptions from
+//         @fustaro/pca9685-controller. This default should work for RPI
 ```
 
 ### Run your servo
