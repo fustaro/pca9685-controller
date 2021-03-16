@@ -1,0 +1,50 @@
+{
+  "name": "@fudtaro/pca9685-controller",
+  "version": "1.0.0",
+  "author": "fustaro",
+  "description": "PCA9685 I2C servo controller",
+  "scripts": {
+    "build": "rm -rf dist && tsc --build tsconfig.json",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/PCA9685ServoController.js",
+  "dependencies": {
+    "@fustaro/servo-core": "^1.0.3",
+    "pca9685": "github:fustaro/pca9685"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.20",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "typescript": "^4.2.3"
+  },
+  "keywords": [
+    "pca9685",
+    "pca9685 controller",
+    "servo",
+    "servo controller",
+    "pi",
+    "rpi",
+    "raspberrypi",
+    "raspberry pi",
+    "i2c",
+    "pwm",
+    "adafruit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fustaro/pca9685-controller.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fustaro/pca9685-controller/issues"
+  },
+  "homepage": "https://github.com/fustaro/pca9685-controller#readme"
+}
