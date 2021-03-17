@@ -67,5 +67,5 @@ const servo = <create your servo>;
 
 //this will run your servo in a sin loop, +/- 40°
 //updating every 15ms and doing 2 full loops every second
-beginSinLoop(controller, servo, 40, 500, 15, 2);
+beginSinLoop(controller, servo, 40, 15, 2);
 ```
