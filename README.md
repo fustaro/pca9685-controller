@@ -50,7 +50,7 @@ controller.setAngleDegrees(servo, 40);
 ### Sample scripts
 
 ```
-import { beginAngleLoop, stopAngleLoop } from '@fustaro/pca9685-controller/samples/angleLoop';
+import { beginAngleLoop, stopAngleLoop } from '@fustaro/pca9685-controller/dist/samples/angleLoop';
 
 const controller = <create your controller>;
 const servo = <create your servo>;
@@ -60,7 +60,7 @@ beginAngleLoop(controller, servo, [40, 0, -40, 0], 500);
 ```
 
 ```
-import { beginSinLoop, stopSinLoop } from '@fustaro/pca9685-controller/samples/sinLoop';
+import { beginSinLoop, stopSinLoop } from '@fustaro/pca9685-controller/dist/samples/sinLoop';
 
 const controller = <create your controller>;
 const servo = <create your servo>;
