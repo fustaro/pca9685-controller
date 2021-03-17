@@ -33,7 +33,7 @@ import { getOrCreatePCA9685Controller } from '@fustaro/pca9685-controller';
 
 const controller = getOrCreatePCA9685Controller(uniqueHardwareName, options);
 
-//uniqueHardwareName: A unique reference to a given Maestro, e.g. 'Maestro_COM4' 
+//uniqueHardwareName: A unique reference to a given PCA9685, e.g. 'PCA9685_1' 
 //                    The ServoControllerFactory will only ever return a single
 //                    ServoController for a given uniqueHardwareName
 
