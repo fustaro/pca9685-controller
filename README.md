@@ -46,3 +46,26 @@ const controller = getOrCreatePCA9685Controller(uniqueHardwareName, options);
 ```
 controller.setAngleDegrees(servo, 40);
 ```
+
+### Sample scripts
+
+```
+import { beginAngleLoop, stopAngleLoop } from '@fustaro/pca9685-controller/samples/angleLoop';
+
+const controller = <create your controller>;
+const servo = <create your servo>;
+
+//this will set your servo to 40°, 0°, -40°, 0°, etc - changing every 500ms
+beginAngleLoop(controller, servo, [40, 0, -40, 0], 500);
+```
+
+```
+import { beginSinLoop, stopSinLoop } from '@fustaro/pca9685-controller/samples/sinLoop';
+
+const controller = <create your controller>;
+const servo = <create your servo>;
+
+//this will run your servo in a sin loop, +/- 40°
+//updating every 15ms and doing 2 full loops every second
+beginSinLoop(controller, servo, 40, 500, 15, 2);
+```

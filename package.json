@@ -14,6 +14,7 @@
   "main": "dist/PCA9685ServoController.js",
   "dependencies": {
     "@fustaro/servo-core": "^1.0.3",
+    "@fustaro/ticker": "^1.0.0",
     "pca9685": "github:fustaro/pca9685"
   },
   "devDependencies": {
