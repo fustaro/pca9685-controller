@@ -15,14 +15,11 @@ export const getOrCreatePCA9685Controller = (uniqueHardwareName: string, options
     let controller = ServoControllerFactory.get(uniqueHardwareName);
 
     if(!controller){
-        const pca9685 = new Pca9685Driver(options, err => {
-            if(err){
-                console.log("Error initializing PCA9685: "+JSON.stringify(err));
+        const pca9685 = new Pca9685Driver(options, error => {
+            if(error){
+                console.log("Error initializing PCA9685: "+JSON.stringify(error));
                 process.exit(-1);
             }
-            console.log("initializaton done");
-            console.log("options");
-            console.log(options);
         });
 
         const servoDriver: PwmWriter = {

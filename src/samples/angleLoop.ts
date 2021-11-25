@@ -10,7 +10,7 @@ export const beginAngleLoop = (controller: IServoController, servo: Servo, angle
 
     ticker.addTickable({
         tick: (deltaTimeMillis) => {
-            controller.setAngleDegrees(servo, angles[angleIdx]);
+            servo.setAngleDegrees(angles[angleIdx]);
             angleIdx = (angleIdx+1)% angles.length;
         }
     });
