@@ -9,7 +9,7 @@ export const beginSinLoop = (controller: IServoController, servo: Servo, angleRa
     ticker.addTickable({
         tick: (deltaTimeMillis) => {
             const angle = angleRange*Math.sin(deltaTimeMillis/1000 * Math.PI * loopsPerSecond);
-            controller.setAngleDegrees(servo, angle);
+            servo.setAngleDegrees(angle);
         }
     });
 
