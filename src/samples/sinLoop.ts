@@ -1,9 +1,9 @@
-import { IServoController, Servo } from "@fustaro/servo-core";
+import { Servo } from "@fustaro/servo-core";
 import { Ticker } from '@fustaro/ticker';
 
 let ticker;
 
-export const beginSinLoop = (controller: IServoController, servo: Servo, angleRange: number, updateIntervalMs: number, loopsPerSecond: number) => {
+export const beginSinLoop = (servo: Servo, angleRange: number, updateIntervalMs: number, loopsPerSecond: number) => {
     ticker = new Ticker(updateIntervalMs, false);
 
     ticker.addTickable({
