@@ -1,6 +1,6 @@
 {
   "name": "@fustaro/pca9685-controller",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "fustaro",
   "description": "PCA9685 I2C servo controller",
   "scripts": {
@@ -13,7 +13,7 @@
   ],
   "main": "dist/PCA9685ServoController.js",
   "dependencies": {
-    "@fustaro/servo-core": "^3.0.0",
+    "@fustaro/servo-core": "^3.0.1",
     "@fustaro/ticker": "^1.0.0",
     "pca9685": "github:fustaro/pca9685"
   },
