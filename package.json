@@ -1,6 +1,6 @@
 {
   "name": "@fustaro/pca9685-controller",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "fustaro",
   "description": "PCA9685 I2C servo controller",
   "scripts": {
