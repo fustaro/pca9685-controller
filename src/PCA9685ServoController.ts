@@ -2,23 +2,37 @@ import i2cBus from "i2c-bus";
 import { Pca9685Driver, Pca9685Options } from "pca9685";
 import { ServoControllerFactory, PwmWriter, HardwareInterface, IServoController } from "@fustaro/servo-core";
 
-export const defaultOptions = (): Pca9685Options => {
+export interface PCA9685Options extends Pca9685Options {
+    stubIfUnavailable: boolean;
+}
+
+export const defaultOptions = (): PCA9685Options => {
     return {
         i2c: i2cBus.openSync(1),
         address: 0x40,
         frequency: 50,
-        debug: false
+        debug: false,
+        stubIfUnavailable: false
     }
 }
 
-export const getOrCreatePCA9685Controller = (uniqueHardwareName: string, options: Pca9685Options = defaultOptions()): IServoController => {
+export const getOrCreatePCA9685Controller = (uniqueHardwareName: string, options: PCA9685Options = defaultOptions()): IServoController => {
     let controller = ServoControllerFactory.get(uniqueHardwareName);
 
     if(!controller){
-        const pca9685 = new Pca9685Driver(options, error => {
+        let pca9685 = new Pca9685Driver(options, error => {
             if(error){
-                console.log("Error initializing PCA9685: "+JSON.stringify(error));
-                process.exit(-1);
+                console.error("Error initializing PCA9685: "+JSON.stringify(error));
+
+                if(!options.stubIfUnavailable){
+                    console.error("Exiting application. If you want to run your application with a stub, you can set PCA9685Options.stubIfUnavailable = true on your controller setup.");
+                    process.exit(-1);
+                } else {
+                    console.warn("Stubbing controller, your application will run but your servos will not work");
+                    pca9685 = {
+                        setPulseLength: () => {}
+                    } as any;
+                }
             }
         });
 
