@@ -33,7 +33,10 @@ export const getOrCreatePCA9685Controller = (uniqueHardwareName: string, options
             } else {
                 console.warn("Stubbing controller, your application will run but your servos will not work");
                 pca9685 = {
-                    setPulseLength: () => {}
+                    setPulseLength: () => {},
+                    channelOn: () => {},
+                    channelOff: () => {},
+                    dispose: () => {}
                 } as any;
             }
         }
@@ -45,10 +48,16 @@ export const getOrCreatePCA9685Controller = (uniqueHardwareName: string, options
         },
         disableServo: (channel: number): void => {
             pca9685.channelOff(channel);
+        },
+        enableServo: (channel: number): void => {
+            pca9685.channelOn(channel);
+        },
+        dispose: () => {
+            pca9685.dispose();
         }
     }
 
-    const pca9685ServoHardwareDriver = new HardwareInterface(servoDriver, uniqueHardwareName, 16, true);
+    const pca9685HardwareInterface = new HardwareInterface(servoDriver, uniqueHardwareName, 16, true);
 
-    return ServoControllerFactory.create(pca9685ServoHardwareDriver);
+    return ServoControllerFactory.create(pca9685HardwareInterface);
 }
