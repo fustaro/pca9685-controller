@@ -15,7 +15,7 @@
   "dependencies": {
     "@fustaro/servo-core": "^6.1.1",
     "@fustaro/ticker": "^1.0.0",
-    "pca9685": "github:fustaro/pca9685"
+    "pca9685": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
